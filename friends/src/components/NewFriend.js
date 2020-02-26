@@ -61,7 +61,7 @@ export default function NewFriend(props) {
                         onChange={handleChange}
                     />
 
-                    <button type="submit">Sign in</button>
+                    <button type="submit">Submit Friend</button>
             </form>
         </div>
     )

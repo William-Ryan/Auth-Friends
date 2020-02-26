@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from "react-router-dom"
+import { Link, Route, withRouter } from "react-router-dom"
 import { getToken } from "./utils/axiosWithAuth"
 import SignIn from "./components/SignIn"
 import FriendsList from "./components/FriendsList"
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
