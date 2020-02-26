@@ -9,7 +9,7 @@ function App() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/signin">Sign in</Link>
-        <Link to="">Friends</Link>
+        <Link to="/friends-list">Friends</Link>
         <Link to="">Logout</Link>
       </nav>
       
