@@ -1,12 +1,11 @@
 import React, { useState } from "react"
 import { axiosWithAuth } from "../utils/axiosWithAuth"
-import axios from "axios"
 
 export default function SignIn(props) {
 
     const [error, setError] = useState()
     const [data, setData] = useState({
-        email: "",
+        username: "",
         password: ""
     })
 
@@ -22,9 +21,10 @@ export default function SignIn(props) {
         axiosWithAuth().post("/api/login", data)
             .then(res => {
                 console.log(res.data)
-                localStorage.setItem("token", res.data.token)
+                localStorage.setItem("token", res.data.payload)
             })
             .catch(err => {
+                console.log(err)
                 setError(err.res.data.message)
             })
     }
@@ -34,13 +34,13 @@ export default function SignIn(props) {
             <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
                 {error && <div className="error">{error}</div>}
-                <label htmlFor="email">Email</label>
+                <label htmlFor="username">Username</label>
                 <input 
-                    type="email"
-                    name="email"
-                    label="email"
-                    placeholder="Email Here"
-                    value={data.email}
+                    type="text"
+                    name="username"
+                    label="username"
+                    placeholder="Username Here"
+                    value={data.username}
                     onChange={handleChange}
                 />
                 <label htmlFor="password">Password</label>
